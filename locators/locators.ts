@@ -4,3 +4,8 @@ export const loginPageLocators = {
   loginButton: '#login-button',
   errorMessage: '[data-test="error"]',
 };
+
+export const inventoryPageLocators = {
+  productFilter: '[data-test="product-sort-container"]',
+  productNames: '.inventory_item_name',
+};
