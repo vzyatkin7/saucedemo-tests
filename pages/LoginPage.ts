@@ -8,7 +8,9 @@ export class LoginPage {
     this.page = page;
   }
   async goto() {
-    await this.page.goto('https://www.saucedemo.com');
+    await this.page.goto('https://www.saucedemo.com', {
+      waitUntil: 'networkidle',
+    });
   }
 
   async login(username: string, password: string) {
