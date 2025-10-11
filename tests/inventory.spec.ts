@@ -25,7 +25,7 @@ test.describe('Сортировка товаров на SauceDemo', () => {
     await inventory.selectSort('za');
 
     const names = await inventory.getProductNames();
-    console.log('Товары после сортировки A → Z:', names);
+    console.log('Товары после сортировки Z → A:', names);
 
     const sortedNames = [...names].sort().reverse();
     expect(names).toEqual(sortedNames);
