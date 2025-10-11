@@ -19,4 +19,12 @@ test.describe('Логин на SauceDemo', () => {
       'Epic sadface: Username and password do not match any user in this service',
     );
   });
+
+  test('неверный пароль - тест упадет', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
+    await loginPage.goto();
+    await loginPage.login('standard_user', 'wrong_password');
+    await loginPage.assertLoginSuccess();
+  });
 });
