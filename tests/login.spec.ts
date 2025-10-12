@@ -20,11 +20,11 @@ test.describe('Логин на SauceDemo', () => {
     );
   });
 
-  test('неверный пароль - тест упадет', async ({ page }) => {
-    const loginPage = new LoginPage(page);
+  // test('неверный пароль - тест упадет', async ({ page }) => {
+  //   const loginPage = new LoginPage(page);
 
-    await loginPage.goto();
-    await loginPage.login('standard_user', 'wrong_password');
-    await loginPage.assertLoginSuccess();
-  });
+  //   await loginPage.goto();
+  //   await loginPage.login('standard_user', 'wrong_password');
+  //   await loginPage.assertLoginSuccess();
+  // });
 });
