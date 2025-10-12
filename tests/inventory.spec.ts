@@ -31,3 +31,17 @@ test.describe('Сортировка товаров на SauceDemo', () => {
     expect(names).toEqual(sortedNames);
   });
 });
+
+test.describe('Работа с корзиной добавление/удаление со списка', () => {
+  test.beforeEach(async ({ page }) => {
+    const loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login('standard_user', 'secret_sauce');
+  });
+
+  test('Добавление товара Sauce Labs Bike Light в корзину со списка товаров', async ({ page }) => {
+    const inventory = new InventoryPage(page);
+    await inventory.addProductToCart('Sauce Labs Bike Light');
+    await inventory.verifyProductInCart('Sauce Labs Bike Light');
+  });
+});
