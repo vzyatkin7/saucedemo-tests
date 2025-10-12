@@ -23,3 +23,9 @@ export const inventoryPageLocators = {
 
   shoppingCartBadge: '.shopping_cart_badge',
 };
+
+export const productPageLocators = {
+  addToCartButton: (page: Page) => page.getByRole('button', { name: `Add to cart` }),
+
+  removeFromCartButton: (page: Page) => page.getByRole('button', { name: `Remove` }),
+};
