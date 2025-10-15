@@ -20,6 +20,7 @@ export const inventoryPageLocators = {
     page
       .locator('.inventory_item', { hasText: productName })
       .getByRole('button', { name: 'Remove' }),
+  shoppingCartBadge: '.shopping_cart_badge',
 };
 
 export const productPageLocators = {
