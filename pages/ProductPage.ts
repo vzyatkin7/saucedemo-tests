@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { inventoryPageLocators, productPageLocators } from '../locators/locators';
+import { cartPageLocators, inventoryPageLocators, productPageLocators } from '../locators/locators';
 
 export class ProductPage {
   constructor(public page: Page) {}
@@ -11,7 +11,7 @@ export class ProductPage {
     // Клик по кнопке "Добавить в корзину" на странице продукта
     const addToCartButtonProduct = productPageLocators.addToCartButton(this.page);
     await addToCartButtonProduct.click();
-    await expect(this.page.locator(inventoryPageLocators.shoppingCartBadge)).toHaveText('1');
+    await expect(cartPageLocators.shoppingCartBadge(this.page)).toHaveText('1');
   }
 
   // удаление товара из корзины на странице продукта
@@ -24,7 +24,7 @@ export class ProductPage {
     await removeFromCartButtonProduct.click();
 
     // проверка что нету бейджа 1 у значка корзины
-    await expect(this.page.locator(inventoryPageLocators.shoppingCartBadge)).toHaveCount(0);
+    await expect(cartPageLocators.shoppingCartBadge(this.page)).toHaveCount(0);
 
     // Проверка, что кнопка изменилась обратно на "Add to cart"
     const addToCartButtonProduct = productPageLocators.addToCartButton(this.page);
