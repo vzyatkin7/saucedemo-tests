@@ -30,7 +30,7 @@ export const productPageLocators = {
 };
 
 export const cartPageLocators = {
-  shoppingCartBadge: (page: Page) => page.locator('.shopping_cart_link'),
+  shoppingCartBadge: (page: Page) => page.locator('.shopping_cart_badge'),
   checkoutButton: (page: Page) => page.getByRole('button', { name: 'Checkout' }),
   continueShoppingButton: (page: Page) => page.getByRole('button', { name: 'Continue Shopping' }),
   cartItems: '.cart_item',
