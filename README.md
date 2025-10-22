@@ -1,5 +1,8 @@
 # 🧪 Проект автоматизации тестирования сайта [SauceDemo](https://www.saucedemo.com)
 
+[![Playwright Tests](https://github.com/vzyatkin7/saucedemo-tests/actions/workflows/playwright.yml/badge.svg)](https://github.com/vzyatkin7/saucedemo-tests/actions/workflows/playwright.yml)
+
+
 ## 📖 Описание проекта
 
 Учебный проект по автоматизации тестирования с использованием **Playwright** и **TypeScript**.  
