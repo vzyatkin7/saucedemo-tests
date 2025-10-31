@@ -36,7 +36,6 @@ test('POST /users — создать нового пользователя', asy
     name: newUser.name,
     gender: newUser.gender,
     email: newUser.email,
-    status: 'active11',
-    // status: newUser.status,
+    status: newUser.status,
   });
 });
