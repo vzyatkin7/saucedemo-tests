@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { createApiClient } from '../../utils/api-client';
 import { stat } from 'fs';
+import { UserApi } from '../../api/user.api';
 
 // генерация уникальных email
 function generateUniqueEmail() {
@@ -10,6 +11,7 @@ function generateUniqueEmail() {
 
 test('POST /users — создать нового пользователя', async () => {
   const api = await createApiClient();
+  const userApi = new UserApi(api);
 
   // Данные нового пользователя
   const newUser = {
@@ -19,9 +21,7 @@ test('POST /users — создать нового пользователя', asy
     status: 'active',
   };
   // Отправляем POST запрос на создание пользователя
-  const response = await api.post('users', {
-    data: newUser,
-  });
+  const response = await userApi.createUser(newUser);
 
   console.log('Request URL:', response.url());
   console.log('Response Status:', response.status());
@@ -32,10 +32,16 @@ test('POST /users — создать нового пользователя', asy
 
   // проверяем, что в ответе содержатся данные созданного пользователя
   const createdUser = await response.json();
+  // сравниваем поля, кроме id
   expect(createdUser).toMatchObject({
     name: newUser.name,
     gender: newUser.gender,
     email: newUser.email,
     status: newUser.status,
   });
+
+  // удаляем созданного пользователя
+  const userId = createdUser.id;
+  const deleteResponse = await userApi.deleteUser(userId);
+  expect(deleteResponse.status()).toBe(204);
 });
