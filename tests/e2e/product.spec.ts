@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage } from '../pages/InventoryPage';
-import { ProductPage } from '../pages/ProductPage';
+import { LoginPage } from '../../pages/LoginPage';
+import { InventoryPage } from '../../pages/InventoryPage';
+import { ProductPage } from '../../pages/ProductPage';
 
 test.describe('Работа с корзиной добавление/удаление со страницы товара', () => {
   test.beforeEach(async ({ page }) => {
